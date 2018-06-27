@@ -1,0 +1,40 @@
+{% extends "class_app/base.html" %}
+
+{% block meta_title %}Teacher's list{% endblock meta_title %}
+
+
+{% block title %}Teacher's list{% endblock title %}
+
+{% block content %}
+    <p><a href="{% url 'teacher-new' %}" class="btn btn-default" role="button">Add ..</a></p>
+    <div class="panel-body">
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr class="bg-red text-white">
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Specialization</th>
+                    <th>Start working</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if teacher_list %}
+                    {% for teacher in teacher_list %}
+                        <tr>
+                            <td><a class="btn btn-default btn-xs" href="#" role="button">Detail</a></td>
+                            <td>{{ teacher }}</td>
+                            <td>{{ teacher.specialization }}</td>
+                            <td>{{ teacher.recipe_date }}</td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td></td>
+                        <td><center><b>No teachers yet</b></center></td>
+                        <td></td>
+                    </tr>                                                  
+                {% endif %}
+            </tbody>                
+        </table>
+    </div>
+{% endblock content %}

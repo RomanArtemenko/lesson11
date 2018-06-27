@@ -1,0 +1,17 @@
+{% extends "class_app/base.html" %}
+
+{% block meta_title %}Subject's list{% endblock meta_title %}
+
+
+{% block title %}Subject's list{% endblock title %}
+
+{% block content %}
+    <p><a href="{% url 'subject-new' %}" class="btn btn-default" role="button">Add ..</a></p>
+    <ul class="list-group">
+        {% for subject in subject_list %}
+            <li class="list-group-item">
+                {{ subject.name }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

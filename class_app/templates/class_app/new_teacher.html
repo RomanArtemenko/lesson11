@@ -1,0 +1,15 @@
+{% extends "class_app/base.html" %}
+
+{% load bootstrap3 %}
+
+{% block meta_title %}New teacher{% endblock meta_title %}
+
+
+{% block title %}New teacher{% endblock title %}
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+      {% bootstrap_form form %}
+    <button type="submit" class="btn btn-red">Add</button>
+</form>
+{% endblock content %}
